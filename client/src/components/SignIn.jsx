@@ -53,7 +53,7 @@ function SignIn(props) {
         const json = await response.json();
         if (json.success) {
             localStorage.setItem("token", json.authToken);
-            navigate("/");
+            navigate("/dashboard");
         }
         else {
             // alert("Invalid Credentials");
