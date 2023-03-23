@@ -1,47 +1,69 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react'
+import axios from 'axios';
 
-function DetectDisease() {
-  const [inputText, setInputText] = useState("");
-  const [resultText, setResultText] = useState("");
+const sampleResponses = [
+  {
+    id: 1,
+    prompt: "I have only been on Tekturna for 9 days. The effect was immediate. I am also on a calcium channel blocker (Tiazac) and hydrochlorothiazide. I was put on Tekturna because of palpitations experienced with Diovan (ugly drug in my opinion, same company produces both however). The palpitations were pretty bad on Diovan, 24 hour monitor by EKG etc. After a few days of substituting Tekturna for Diovan, there are no more palpitations",
+  },
+  {
+    id: 2,
+    prompt: "This is the third med I&#039;ve tried for anxiety and mild depression. Been on it for a week and I hate it so much. I am so dizzy, I have major diarrhea and feel worse than I started. Contacting my doc in the am and changing asap",
+  },
+  {
+    id: 3,
+    prompt: "I just got diagnosed with type 2. My doctor prescribed Invokana and metformin from the beginning. My sugars went down to normal by the second week. I am losing so much weight. No side effects yet. Miracle medicine for me",
+  }
+]
 
-  const handleInputChange = (event) => {
-    setInputText(event.target.value);
-  };
+function DetectDisease(props) {
+  useEffect(() => {
+    document.title = props.title
+  }, [])
 
-  const handleSubmit = async (event) => {
-    event.preventDefault();
+  const [prompt, setPrompt] = useState("")
+  const [result, setResult] = useState("")
 
-    const response = await fetch('/predict', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({rawtext: inputText})
-    });
+  const handleChange = (e) => {
+    setPrompt(e.target.value)
+  }
 
-    const data = await response.json();
-    setResultText(data.result);
-  };
+  const handleClick = async (e) => {
+    e.preventDefault()
+    console.log(prompt)
+    const url = "http://localhost:8000/api/chat/chatbot"
+    try {
+      const response = await axios.post(url, { text: prompt })
+      setResult(response.data.data.replace("/r", ""))
+    }
+    catch (err) {
+      console.log(err)
+    }
+  }
+
 
   return (
-    <div className="mx-auto max-w-md p-4 bg-gray-100 rounded-lg shadow-lg">
-      <form onSubmit={handleSubmit} className="flex flex-col">
-        <label className="mb-2 font-semibold text-gray-700">
-          Enter Text:
-          <input type="text" value={inputText} onChange={handleInputChange} className="mt-1 px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent" />
-        </label>
-        <button type="submit" className="mt-4 bg-blue-500 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded-lg">
-          Submit
-        </button>
-      </form>
-      {resultText && (
-        <div className="mt-4">
-          <h2 className="font-semibold text-gray-700">Result:</h2>
-          <p className="mt-2 text-gray-600">{resultText}</p>
+    <div className="justify-center flex flex-col w-[50vw] mx-auto mt-10">
+      <textarea type="text" className="text-sm rounded-md bg-gray-100 outline-2" onChange={handleChange} />
+      <div>
+        {
+          sampleResponses.map((response) => {
+            return (
+              <div key={response.id} className="mt-2 bg-gray-500 text-white flex flex-wrap w-[50vw]" onClick={() => setPrompt(response.prompt)}>
+                <p className="text-sm px-2 py-3 items-center justify-center">{response.prompt}</p>
+              </div>
+            )
+          })
+        }
+      </div>
+      <button className='px-2 py-3 bg-blue-600 mt-4 text-white' onClick={handleClick}>Submit</button>
+      {result &&
+        <div className='mt-4'>
+          Disease : {result}
         </div>
-      )}
+      }
     </div>
-  );
+  )
 }
 
-export default DetectDisease;
+export default DetectDisease
