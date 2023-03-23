@@ -21,7 +21,10 @@ const services = [
     }
 ]
 
-function Dashboard() {
+function Dashboard(props) {
+    useEffect(() => {
+        document.title = props.title
+    }, [])
     return (
         <div className=''>
             <h2 className="text-center text-3xl font-bold mt-10">Dashboard</h2>
