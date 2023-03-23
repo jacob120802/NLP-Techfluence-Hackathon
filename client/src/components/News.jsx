@@ -13,9 +13,9 @@ function News(props) {
         const response = await fetch(`https://newsapi.org/v2/everything?q==health&apiKey=${API_KEY}`)
         let data = await response.json()
         data = data['articles']
-        console.log(data)
+        // console.log(data)
         setNews(data)
-        console.log(news)
+        // console.log(news)
 
     }
 
