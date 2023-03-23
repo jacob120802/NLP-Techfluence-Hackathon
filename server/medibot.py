@@ -93,13 +93,13 @@ lemmatizer = WordNetLemmatizer()
 
 # !pip install bs4
 
-print(porter.stem("sportingly"))
-print(porter.stem("very"))
-print(porter.stem("troubled"))
+# print(porter.stem("sportingly"))
+# print(porter.stem("very"))
+# print(porter.stem("troubled"))
 
-print(lemmatizer.lemmatize("sportingly"))
-print(lemmatizer.lemmatize("very"))
-print(lemmatizer.lemmatize("troubled"))
+# print(lemmatizer.lemmatize("sportingly"))
+# print(lemmatizer.lemmatize("very"))
+# print(lemmatizer.lemmatize("troubled"))
 
 from bs4 import BeautifulSoup
 import re
@@ -147,9 +147,10 @@ def plot_confusion_matrix(cm, classes,
 
     if normalize:
         cm = cm.astype('float') / cm.sum(axis=1)[:, np.newaxis]
-        print("Normalized confusion matrix")
+        # print("Normalized confusion matrix")
     else:
-        print('Confusion matrix, without normalization')
+        # print('Confusion matrix, without normalization')
+        pass
 
     thresh = cm.max() / 2.
     for i, j in itertools.product(range(cm.shape[0]), range(cm.shape[1])):
@@ -249,13 +250,13 @@ def most_informative_feature_for_class(vectorizer, classifier, classlabel, n=10)
 
 
 
-most_informative_feature_for_class(tfidf_vectorizer, pass_tf, 'Birth Control')
+# most_informative_feature_for_class(tfidf_vectorizer, pass_tf, 'Birth Control')
 
-most_informative_feature_for_class(tfidf_vectorizer, pass_tf, 'Depression')
+# most_informative_feature_for_class(tfidf_vectorizer, pass_tf, 'Depression')
 
-most_informative_feature_for_class(tfidf_vectorizer, pass_tf, 'High Blood Pressure')
+# most_informative_feature_for_class(tfidf_vectorizer, pass_tf, 'High Blood Pressure')
 
-most_informative_feature_for_class(tfidf_vectorizer, pass_tf, 'Diabetes, Type 2')
+# most_informative_feature_for_class(tfidf_vectorizer, pass_tf, 'Diabetes, Type 2')
 
 tfidf_vectorizer = TfidfVectorizer(stop_words='english', max_df=0.8)
 tfidf_train = tfidf_vectorizer.fit_transform(X_train)

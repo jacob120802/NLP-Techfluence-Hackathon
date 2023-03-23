@@ -1,7 +1,8 @@
 const {spawn} = require('child_process');
 
-const chatbot = async(req,res) => {
-    const childPython = spawn('python',['medibot.py',req.body.text])
+const chatbot = async (req,res) => {
+    const {text} = req.body;
+    const childPython = spawn('python',['medibot.py',text])
 
     childPython.stdout.on('data',(data) => {
         console.log(`stdout: ${data}`);
@@ -9,11 +10,11 @@ const chatbot = async(req,res) => {
     })
 
     childPython.stderr.on('data',(data) => {
-        console.log(`stderr: ${data}`);
+        // console.log(`stderr: ${data}`);
     })
 
     childPython.on('close',(code) => {
-        console.log(`child process exited with code ${code}`);
+        // console.log(`child process exited with code ${code}`);
     })
 }
 
