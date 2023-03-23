@@ -1,4 +1,4 @@
-import React from 'react'
+import React,{useEffect} from 'react'
 import { AiFillMedicineBox, AiFillWechat, AiFillFileMarkdown } from "react-icons/ai";
 import homelogo from '../assets/home2.png'
 import { Link } from "react-router-dom";
