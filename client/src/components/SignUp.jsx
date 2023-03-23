@@ -57,7 +57,7 @@ function SignUp(props) {
             console.log(json)
             if (json.success) {
                 localStorage.setItem("token", json.authToken);
-                navigate("/");
+                navigate("/login");
             }
             else {
                 // alert("Invalid Credentials");
