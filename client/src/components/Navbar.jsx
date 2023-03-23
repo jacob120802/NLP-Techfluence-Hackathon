@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { FiMenu } from "react-icons/fi";
-import { Link } from "react-router-dom";
 import logo from '../assets/logo2.png'
 import { Link, useNavigate } from "react-router-dom";
 
