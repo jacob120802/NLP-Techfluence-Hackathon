@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { FiMenu } from "react-icons/fi";
 import { Link } from "react-router-dom";
+import logo from '../assets/logo2.png'
 
 function Navbar() {
     const [open, setOpen] = useState(false);
@@ -21,9 +22,10 @@ function Navbar() {
     return (
         <header className="border-b border-gray-300 py-4">
             <div className="flex items-center justify-between xl:max-w-7xl xl:mx-auto max-w-full px-[8%] flex-wrap w-full">
-                <img src="/logo.png" width={220} height={55} alt="logo" />
+                <span className='flex items-center'><img src={logo} width={100} height={45} alt="logo" />
+                <h1 className='text-3xl font-bold sm:text-4xl'>Medi-BOT</h1></span>
                 <FiMenu className="lg:hidden block h-6 w-6 cursor-pointer" onClick={() => setOpen(!open)} />
-                <nav className={`lg:flex lg:items-center lg:w-auto w-full ${open ? "block" : "hidden"} mt-6 lg:mt-0`}>
+                <nav className={`lg:flex lg:items-center lg:w-auto w-full ${open ? "block" : "hidden"} mt-5 lg:mt-0`}>
                     <ul className="text-base text-gray-600 lg:flex lg:justify-center text-center">
                         <li>
                             <Link className="lg:px-5 py-2 block hover:text-blue-700 font-semibold" to="/">Home</Link>
