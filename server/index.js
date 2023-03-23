@@ -18,6 +18,7 @@ const port = process.env.PORT || 3000;
 const host = process.env.HOST
 
 app.use("/api/auth",require("./routes/auth"));
+app.use("/api/chat",require("./routes/test"));
 
 app.listen(port, () => {
     console.log(`Server is running on http://${host}:${port}`)
