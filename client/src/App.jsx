@@ -11,6 +11,7 @@ import Chat from './components/Chat'
 import Dashboard from './components/Dashboard'
 import DetectDisease from './components/detectDisease'
 import News from './components/News'
+import BMICalculator from './components/BMICalculator'
 // import Task from './components/Task'
 
 function App() {
@@ -28,6 +29,7 @@ function App() {
         <Route exact path="/detect" element={<DetectDisease title="Detect Disease"/>} />
         <Route exact path="/dashboard" element={<Dashboard title="Dashboard"/>} />
         <Route exact path="/news" element={<News title="Health News"/>} />
+        <Route exact path="/bmi" element={<BMICalculator title="BMI"/>} />
         {/* <Route exact path="/settings" element={<Settings title="Settings"/>} />
         <Route exact path="/profile" element={<Profile title="Profile"/>} />
         <Route exact path="/task" element={<Task title="Tasks"/>} /> */}
