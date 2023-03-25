@@ -7,7 +7,7 @@ function News(props) {
     }, [])
 
     const [news, setNews] = useState([])
-    const API_KEY = "4b032228fe12449fa4ed4c0c510a33d3"
+    const API_KEY = "" // ENTER YOUR API KEY HERE
 
     const getNews = async () => {
         const response = await fetch(`https://newsapi.org/v2/everything?q==health&apiKey=${API_KEY}`)

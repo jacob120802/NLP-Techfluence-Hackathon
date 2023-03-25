@@ -49,16 +49,11 @@ In conclusion, the proposed system provides an efficient and accurate method for
 
 <a name="screenshots"></a>
 #### <ins>Screenshots</ins>
-<img src="/project screenshot and slides/1-home.png" width="49%">
-<img src="/project screenshot and slides/2-about.png" width="49%">
-<img src="/project screenshot and slides/3-about.png" width="49%">
-<img src="/project screenshot and slides/4-signin.png" width="49%">
-<img src="/project screenshot and slides/5-register.png" width="49%">
-<img src="/project screenshot and slides/6-nav.png" width="49%">
-<img src="/project screenshot and slides/8-chatbot.png" width="49%">
-<img src="/project screenshot and slides/9-diseasePrediction.png" width="49%">
-<img src="/project screenshot and slides/10.news.png" width="49%">
-<img src="/project screenshot and slides/11-bmi.png" width="49%">
+<img src="/project screenshot and slides/1-home.png" width="49%"><img src="/project screenshot and slides/2-about.png" width="49%">
+<img src="/project screenshot and slides/3-about.png" width="49%"><img src="/project screenshot and slides/4-signin.png" width="49%">
+<img src="/project screenshot and slides/5-register.png" width="49%"><img src="/project screenshot and slides/6-nav.png" width="49%">
+<img src="/project screenshot and slides/8-chatbot.png" width="49%"><img src="/project screenshot and slides/9-diseasePrediction.png" width="49%">
+<img src="/project screenshot and slides/10.news.png" width="49%"><img src="/project screenshot and slides/11-bmi.png" width="49%">
 <img src="/project screenshot and slides/7-dashboard.png">
 
 <a name="technology"></a>
